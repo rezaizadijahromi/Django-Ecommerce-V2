@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 
 from .views import home_page, about_page, login_form, registeration_form
@@ -28,6 +28,7 @@ urlpatterns = [
     # path('contact/', contact_page),
     path('login/', login_form),
     path('register/', registeration_form),
+    path('products/', include('products.urls', namespace="product")),
 ]
 
 
