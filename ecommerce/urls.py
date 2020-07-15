@@ -19,15 +19,15 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib import admin
 
-from .views import home_page, about_page, login_form, registeration_form
+from .views import home_page, about_page, login_form, registeration_form,contact_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_page),
-    path('about/', about_page),
-    # path('contact/', contact_page),
-    path('login/', login_form),
-    path('register/', registeration_form),
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', login_form, name='login'),
+    path('register/', registeration_form, name='register'),
     path('products/', include('products.urls', namespace="products")),
 ]
 
