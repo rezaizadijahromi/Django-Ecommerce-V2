@@ -28,7 +28,7 @@ urlpatterns = [
     # path('contact/', contact_page),
     path('login/', login_form),
     path('register/', registeration_form),
-    path('products/', include('products.urls', namespace="product")),
+    path('products/', include('products.urls', namespace="products")),
 ]
 
 
