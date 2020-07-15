@@ -9,10 +9,13 @@ from products.utils import unique_slug_generator
 
 class Tag(models.Model):
     title = models.CharField(max_length=120)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
     products = models.ManyToManyField(Product)
+
+    def __str__(self):
+        return self.title
 
 
 def tag_pre_save_receiver(sender, instance, *args, **kwargs):
