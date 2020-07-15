@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save, post_save
+from django.urls import reverse
 
 import random
 import os
@@ -63,7 +64,7 @@ class Product(models.Model):
 
 
     def get_absolute_url(self):
-        return "/products/{slug}/".format(slug=self.slug)
+        return reverse("products:detail", kwargs={"slug": self.slug})
 
 
     def __str__(self):
