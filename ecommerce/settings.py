@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'search',
     'tags',
-    'carts'
+    'carts',
+    'order'
 ]
 
 MIDDLEWARE = [
