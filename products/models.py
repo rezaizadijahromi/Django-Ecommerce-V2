@@ -80,6 +80,11 @@ class Product(models.Model):
         return reverse("products:detail", kwargs={"slug": self.slug})
 
 
+    @property
+    def name(self):
+        return self.title
+
+
     def __str__(self):
         return self.title
 
