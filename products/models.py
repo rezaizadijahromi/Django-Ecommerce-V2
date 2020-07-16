@@ -26,11 +26,8 @@ def upload_image_path(instance, filename):
             )
 
 class ProductQuerySet(models.QuerySet):
-    def active(self):
-        return self.filter(active=True)
-
     def featured(self):
-        return self.filter(featured=True, active=True)
+        return self.filter(featured=True)
         
     def search(self, query):
         lookups = (Q(title__icontains=query) | 
@@ -46,8 +43,8 @@ class ProductManager(models.Manager):
     def get_quesryset(self):
         return ProductQuerySet(self.model, using=self._db)
 
-    def all(self):
-        return self.get_quesryset().active()
+    # def all(self):
+    #     return self.get_quesryset()
 
     def featured(self):
         return self.get_quesryset().featured()

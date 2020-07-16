@@ -45,12 +45,12 @@ class ProductDetailSlugView(DetailView):
     def get_object(self, *args, **kwargs):
         slug = self.kwargs.get('slug')
         try:
-            instance = Product.objects.get(slug=slug, active=True)
+            instance = Product.objects.get(slug=slug)
 
         except Product.DoesNotExist:    
             raise Http404('Not found...')
         except Product.MultipleObjectsReturned:
-            qs = Product.objects.filter(slug=slug, active=True)
+            qs = Product.objects.filter(slug=slug)
             instance = qs.first()
         except:
             raise Http404("Fucks going on mannn")
@@ -63,9 +63,9 @@ class ProductFeaturedListView(ListView):
     template_name = 'products/list.html'
 
     def get_queryset(self):
-        return Product.objects.all().featured()
+        return Product.objects.all()
 
 
 class ProductFeaturedDetailView(DetailView):
-    queryset = Product.objects.all().featured()
+    queryset = Product.objects.all()
     template_name = 'products/featured-detail.html'    
