@@ -4,6 +4,8 @@ from .views import (
     checkout_home
 )
 
+
+
 app_name = 'carts'
 
 urlpatterns = [
