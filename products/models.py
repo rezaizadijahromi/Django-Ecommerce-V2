@@ -7,7 +7,7 @@ import random
 import os
 from datetime import datetime
 
-from .utils import unique_slug_generator
+from ecommerce.utils import unique_slug_generator
 
 
 
