@@ -19,6 +19,7 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            return redirect('home')
             if is_safe_url(redirect_path, request.get_host()):
                 return redirect(redirect_path)
             else:
@@ -42,5 +43,6 @@ def register_page(request):
         password  = form.cleaned_data.get("password")
         new_user  = User.objects.create_user(username, email, password)
         print(new_user)
+        return redirect("home")
 
     return render(request, "accounts/register.html", context) 

@@ -28,7 +28,7 @@ class RegisterForm(forms.Form):
         email = self.cleaned_data.get('email')
         qs = User.objects.filter(email=email)
         if qs.exists():
-            raise forms.ValidationError("This {} is already taken.").format(email)
+            raise forms.ValidationError(f"This {email} is already taken.")
         return email
 
     def clean(self):

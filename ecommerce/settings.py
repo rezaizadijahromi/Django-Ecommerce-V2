@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'carts',
     'order',
     'accounts',
+    'billing',
 ]
 
 LOGIN_REDIRECT_URL = 'products:list'
